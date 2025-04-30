@@ -1,5 +1,6 @@
-import { ViewStyle } from "react-native"
-import { spacing } from "./spacing"
+import { ViewStyle } from "react-native";
+import { spacing } from "./spacing";
+import { colors } from "./colors";
 
 /* Use this file to define styles that are used in multiple places in your app. */
 export const $styles = {
@@ -18,5 +19,15 @@ export const $styles = {
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
+  } as ViewStyle,
+
+  boxShadow: {
+    shadowColor: colors.palette.overlay50,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   } as ViewStyle,
 }

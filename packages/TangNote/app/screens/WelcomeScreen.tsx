@@ -13,7 +13,7 @@ import { useAppTheme } from "@/utils/useAppTheme"
 const welcomeLogo = require("../../assets/images/logo.png")
 const welcomeFace = require("../../assets/images/welcome-face.png")
 
-interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> {}
+interface WelcomeScreenProps extends AppStackScreenProps<"Welcome"> { }
 
 export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeScreen(_props) {
   const { themed, theme } = useAppTheme()
@@ -23,8 +23,12 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
     authenticationStore: { logout },
   } = useStores()
 
-  function goNext() {
+  function goDemo() {
     navigation.navigate("Demo", { screen: "DemoShowroom", params: {} })
+  }
+
+  function goNext() {
+    navigation.navigate("Tabs", { screen: "Record" })
   }
 
   useHeader(
@@ -64,6 +68,13 @@ export const WelcomeScreen: FC<WelcomeScreenProps> = observer(function WelcomeSc
           preset="reversed"
           tx="welcomeScreen:letsGo"
           onPress={goNext}
+        />
+
+        <Button
+          testID="next-screen-button"
+          preset="reversed"
+          text="go demo"
+          onPress={goDemo}
         />
       </View>
     </Screen>

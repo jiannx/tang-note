@@ -45,7 +45,7 @@ if (locale?.languageTag && locale?.textDirection === "rtl") {
 
 export const initI18n = async () => {
   i18n.use(initReactI18next)
-
+  console.log('locale', locale)
   await i18n.init({
     resources,
     lng: locale?.languageTag ?? fallbackLocale,
